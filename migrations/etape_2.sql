@@ -1,9 +1,9 @@
 CREATE TABLE categorie (
-    idCategorie INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    id_categorie INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     nom VARCHAR(100) NOT NULL
 );
 
-ALTER TABLE plats RENAME COLUMN categorie TO idCategorie;
+ALTER TABLE plats RENAME COLUMN categorie TO id_categorie;
 
 INSERT INTO categorie (nom) VALUES
 ('Plats Malagasy'),
@@ -13,18 +13,18 @@ INSERT INTO categorie (nom) VALUES
 ('Boissons');
 
 UPDATE plats 
-SET idCategorie = CASE
-    WHEN idCategorie = 'Plat malagasy' THEN '1'
-    WHEN idCategorie = 'Plat chinois' THEN '2'
-    WHEN idCategorie = 'Soupe' THEN '3'
-    WHEN idCategorie = 'Dessert et goûter' THEN '4'
-    WHEN idCategorie = 'Boisson' THEN '5'
-    ELSE idCategorie
+SET id_categorie = CASE
+    WHEN id_categorie = 'Plat malagasy' THEN '1'
+    WHEN id_categorie = 'Plat chinois' THEN '2'
+    WHEN id_categorie = 'Soupe' THEN '3'
+    WHEN id_categorie = 'Dessert et goûter' THEN '4'
+    WHEN id_categorie = 'Boisson' THEN '5'
+    ELSE id_categorie
 END;
 
-ALTER TABLE plats ALTER COLUMN idCategorie TYPE INT USING idCategorie::INT;
-ALTER TABLE plats ALTER COLUMN idCategorie SET NOT NULL;
-ALTER TABLE plats ADD CONSTRAINT fk_plats_categorie FOREIGN KEY (idCategorie) REFERENCES categorie(idCategorie);
+ALTER TABLE plats ALTER COLUMN id_categorie TYPE INT USING id_categorie::INT;
+ALTER TABLE plats ALTER COLUMN id_categorie SET NOT NULL;
+ALTER TABLE plats ADD CONSTRAINT fk_plats_categorie FOREIGN KEY (id_categorie) REFERENCES categorie(id_categorie);
 
 
 -- On ne me pas simplement categorie VARCHAR(100) dans plats car il peut y

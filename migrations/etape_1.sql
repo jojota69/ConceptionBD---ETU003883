@@ -1,5 +1,5 @@
 CREATE TABLE plats(
-    idPlat INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    id_plat INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     nom VARCHAR(100) NOT NULL,
     categorie VARCHAR(100),
     prix INT    
@@ -16,4 +16,4 @@ INSERT INTO plats (nom, categorie, prix) VALUES
 
 -- Piege
 -- Je choisis INT pour le type du prix car les prix sont toujours arrondis en ariary
--- Je choisis idPlat pour l'identifiant unique de chaque plats
+-- Je choisis id_plat pour l'identifiant unique de chaque plat

@@ -4,9 +4,19 @@ SELECT * FROM plats ORDER BY prix DESC;
 
 -- Etape 2
 -- Nombre de plats par categorie
-SELECT c.nom, COUNT(p.idCategorie) AS nombre
+SELECT c.nom, COUNT(p.id_categorie) AS nombre
 FROM categorie AS c
-JOIN plats AS p ON c.idCategorie = p.idCategorie
-GROUP BY c.idCategorie, c.nom;
+JOIN plats AS p ON c.id_categorie = p.id_categorie
+GROUP BY c.id_categorie, c.nom;
 
+-- Etape 3
+-- Montant total de chaque commande
 
+SELECT c.id_commande,
+	   c.daty,
+	   SUM(p.prix * dc.quantite) AS montant_total
+FROM commandes AS c
+JOIN detail_commande AS dc ON c.id_commande = dc.id_commande
+JOIN plats AS p ON p.id_plat = dc.id_plat
+GROUP BY c.id_commande, c.daty
+ORDER BY c.id_commande;

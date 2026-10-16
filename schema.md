@@ -1,9 +1,9 @@
 ## Etape 1
 
-PLATS(**idPlat**, nom, categorie?, prix?) (nouveau)
+PLATS(**id_plat**, nom, categorie?, prix?) (nouveau)
 
 ## Etape 2
 
-PLATS(**idPlat**, nom, #idCategorie, prix?) (modifié)
-CATEGORIE(**idCategorie**, nom)
+PLATS(**id_plat**, nom, #id_categorie, prix?) (modifié)
+CATEGORIE(**id_categorie**, nom) (nouveau)
 
